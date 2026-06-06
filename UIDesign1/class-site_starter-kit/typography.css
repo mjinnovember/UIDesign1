@@ -1,0 +1,9 @@
+/*Typos*/
+/*pixelify-sans*/
+@font-face {
+    font-family: Pixelify-sans;
+    src: local('☺');
+    src: url('typo/PixelifySans-Medium.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
