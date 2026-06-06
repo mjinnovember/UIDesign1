@@ -1,0 +1,143 @@
+* {
+    margin:  0px;
+    padding:  0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Inter, sans-serif;
+    font-size: 19px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+
+    /* --- FONDO DE PUNTOS (BULLET JOURNAL) --- */
+    background-color: #ffffff;
+    background-image: radial-gradient(#bbbbbb 1.5px, transparent 1px);
+    background-size: 30px 30px; /* Ajusta este número para que los puntos estén más o menos juntos */
+    background-attachment: fixed; /* Mantiene el fondo quieto mientras haces scroll */
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.circle-btn {
+width: 3.2vw;
+    height: 3.2vw;
+    background-color: #E3D562;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-top: 2.8vw; 
+    flex-shrink: 0;
+}
+
+h1 {
+  font-family: Inter, sans-serif;
+    font-weight: semi-bold;
+    font-size: 9vw;
+    line-height: 1.2;
+    color: black;
+}
+
+#right-column {
+display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  padding-right: 5vw;
+}
+
+#left-column {
+    padding-top: 5vw;
+    padding-left: 5vw;
+    flex:1;
+}
+
+.just-me-again-down-here-regular {
+  font-family: "just-me", cursive;
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 3.4vw;
+  color: #D76B06;
+
+  display: inline-block; 
+  animation: latido 3s ease-in-out infinite;
+}
+
+/* Animación */
+@keyframes latido {
+  0% {
+    transform: scale(1); /* Tamaño original */
+  }
+  60% {
+    transform: scale(1.06); 
+  }
+  100% {
+    transform: scale(1); /* Vuelve al original */
+  }
+}
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 2.5vw;
+}
+
+.text-green { 
+  color: #76ba81; 
+}
+
+.text-blue { 
+  color: #87c3d9; 
+}
+
+.button-wrapper {
+  display: absolute;
+    padding-left: 20vw;
+}
+
+.arrow {
+  width: 6vw;
+  height: 4.3vw;
+  border-left: .6vw solid #e67e22;
+  border-bottom: .6vw solid #e67e22;
+  border-bottom-left-radius: 4vw; 
+    border-top-left-radius: .6vw; 
+    border-top-right-radius: .6vw;
+    border-bottom-right-radius: .6vw;
+    
+    position: absolute;
+    top: 8.8vw;
+    right: 11vw;
+    margin-right: .9vw;
+    /* Bajamos un poco la flecha para que no pegue tanto al texto */}
+
+/* La punta de la flecha */
+.arrow::after {
+content: '';
+    position: absolute;
+    right: -.5vw;
+    bottom: -1.1vw; /* Ajustado para que encaje con el borde de 6px */
+    width: 0;
+    height: 0;
+    border-top: 1vw solid transparent;
+    border-bottom: .8vw solid transparent;
+    border-left: 1.5vw solid #e67e22;
+    border-radius: .3vw;
+}
+
+.second-text {
+  padding-left: 4.5vw;
+  animation-delay: 0.5s;
+}
+
+.first-text {
+  padding-right: 10vw;
+}
