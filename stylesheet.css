@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- BARRA DE TAREAS RETRO --- */
+#taskbar {
+    background-color: #d4d0c8;
+    border-bottom: 2px solid #848284;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 10px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.taskbar-left {
+    display: flex;
+    gap: 4px;
+}
+
+.os-btn {
+    background: #d4d0c8;
+    border: 2px solid;
+    border-color: #fff #404040 #404040 #fff;
+    padding: 3px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-style: italic;
+    color: #555;
+}
+
+.os-btn.active, .os-btn:active {
+    border-color: #404040 #fff #fff #404040;
+    background: #e6e6e6;
+    font-style: normal;
+    font-weight: bold;
+    color: #000;
+}
+
+.taskbar-right {
+    background: #d4d0c8;
+    border: 2px solid;
+    border-color: #404040 #fff #fff #404040;
+    padding: 3px 8px;
+    font-size: 11px;
+}
+
+/* --- ÁREA DE TRABAJO (ESCRITORIO) --- */
+#desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Modificado de 1.1fr 0.9fr */
+    flex-grow: 1;
+    padding: 50px;
+    gap: 40px;
+    overflow: auto;
+}
+
+/* --- TIPOGRAFÍA Y TEXTOS (COLUMNA IZQUIERDA) --- */
+#left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo base y animación del título principal */
+.pixel-title {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 10vw;
+    line-height: 1.0; /* Ajustado ligeramente para dar espacio al movimiento */
+    color: #222222;
+    text-transform: lowercase;
+    font-weight: 700;
+    user-select: none;
+}
+
+/* Configuración de cada letra para hacer la ola */
+.pixel-title span {
+    display: inline-block;
+    animation: waveAnimation 1.6s ease-in-out infinite;
+    /* Usa la variable --i definida en el HTML para calcular el retraso de cada letra */
+    animation-delay: calc(var(--i) * 0.08s); 
+}
+
+/* Animación de ola usando traslación en el eje Y */
+@keyframes waveAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-18px); /* Eleva la letra simulando la cresta de la ola */
+    }
+}
+
+.name-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 34px;
+    color: #800080; 
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #111;
+    max-width: 460px;
+}
+
+.section-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: #0000ff; 
+    text-transform: uppercase;
+    border-bottom: 2px solid #0000ff;
+    display: inline-block;
+    width: fit-content;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.fav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fav-list li {
+    font-size: 16px;
+    color: #000;
+}
+
+#left-column a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+/* --- VENTANAS DE SISTEMA (COLUMNA DERECHA) --- */
+#right-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Cambiado de 'center' para que responda mejor al ancho */
+    justify-content: flex-start;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.window {
+    background-color: #d4d0c8;
+    border: 2px solid;
+    border-color: #fff #404040 #404040 #fff;
+    box-shadow: 1px 1px 0 0 #000;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.window-titlebar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: white;
+    padding: 4px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.close-btn {
+    background: #d4d0c8;
+    border: 1px solid;
+    border-color: #fff #404040 #404040 #fff;
+    font-size: 9px;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+}
+
+.window-content {
+    background-color: #fff;
+    border: 2px solid;
+    border-color: #404040 #fff #fff #404040;
+    padding: 10px;
+}
+
+.window-photo {
+    width: 100%;          /* Ahora se adapta al ancho total disponible de su columna */
+    max-width: 520px;     /* Aumentamos de 340px a 520px para que se vea mucho más grande */
+    margin-left: auto;    /* La alinea elegantemente hacia la derecha */
+    z-index: 1;
+}
+
+.window-photo .window-content {
+    padding: 2px;
+    background: #e6e6e6;
+}
+
+.window-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.window-exercises {
+    width: 260px;
+    position: absolute;
+    bottom: 20px;         /* Ajustado ligeramente */
+    right: -10px;         /* Ajustado para que sobresalga un poco con estilo retro */
+    z-index: 2;
+}
+
+.window-exercises .window-content {
+    background-color: #d4d0c8; 
+    padding: 15px 10px;
+}
+
+.exercise-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.window-exercises a {
+    color: #000;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.window-exercises a::before {
+    content: "📁 "; 
+    margin-right: 5px;
+}
+
+.window-exercises a:hover {
+    color: #800080;
+    text-decoration: underline;
+}
+
+/* --- DISEÑO RESPONSIVO PARA PANTALLAS PEQUEÑAS --- */
+@media (max-width: 950px) {
+    body {
+        overflow: auto; /* Permite el scroll general en el sitio */
+    }
+
+    #desktop {
+        grid-template-columns: 1fr; /* Cambia a una sola columna vertical */
+        padding: 30px 20px;
+        gap: 50px;
+        overflow-y: visible;
+    }
+
+    #left-column {
+        max-width: 100%;
+    }
+
+    .pixel-title {
+        font-size: 16vw; /* Hace el título responsivo y proporcional al ancho */
+    }
+
+    #right-column {
+        align-items: center;
+        padding-top: 0;
+    }
+
+    .window-photo {
+        margin-left: 0; /* Centra la ventana de la foto */
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .window-exercises {
+        position: relative; /* Deja de ser flotante absoluta para no encimarse de forma caótica */
+        bottom: auto;
+        right: auto;
+        width: 100%;
+        max-width: 450px;
+        margin-top: -20px; /* Crea un ligero efecto de desfase retro controlado */
+        margin-left: 40px;  /* Desplaza la ventana hacia un lado con estilo */
+    }
+}
