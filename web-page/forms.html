@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Log - Everywhere Library</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="stylesheet3.css">
+  <link rel="stylesheet" type="text/css" href="typos.css">
+  <script type="text/javascript" src="script-form.js" defer></script>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo-title">EVERYWHERE LIBRARY</div>
+    <div class="nav-actions">
+      <a href="login.html" id="login-link">
+        <button type="button" class="login-btn" id="user-btn">LOGIN</button>
+      </a>
+    </div>
+</header>
+
+<div class="form-bg-container">
+  <form id="book-form" class="yellow-card">
+    
+    <div class="column">
+      <div class="upload-box" id="drop-zone">
+          <label for="photo-input">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px">
+                  <path d="M480-480ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h320v80H200v560h560v-320h80v320q0 33-23.5 56.5T760-120H200Zm40-160h480L570-480 450-320l-90-120-120 160Zm440-320v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z"/>
+              </svg>
+              <span>Upload image</span>
+          </label>
+          <input type="file" id="photo-input" accept="image/*" style="display:none">
+          <img id="preview-img" src="" style="display:none; width:100%; height:100%; object-fit:cover;">
+      </div>
+
+      <div class="text-inputs">
+        <div class="input-group">
+          <input type="text" placeholder=" " id="title">
+          <label>Title</label>
+        </div>
+        <div class="input-group">
+          <input type="text" placeholder=" " id="author">
+          <label>Author</label>
+        </div>
+        <div class="input-group">
+          <input type="number" placeholder=" " id="pages">
+          <label># of pages</label>
+        </div>
+        <div class="input-group">
+          <input type="number" placeholder=" " id="chapters">
+          <label># of chapters</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <section>
+        <h3 class="just-me-again-down-here-regular">Rating</h3>
+        <div class="stars-container" id="star-rating">
+          <svg class="star" data-value="1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
+          </svg>
+          <svg class="star" data-value="2" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
+          </svg>
+          <svg class="star" data-value="3" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
+          </svg>
+          <svg class="star" data-value="4" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
+          </svg>
+          <svg class="star" data-value="5" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
+          </svg>
+        </div>
+        <p class="subtext"><span id="rating-value">0</span> to 5 stars</p>
+      </section>
+      <hr>
+      <section>
+        <h3 class="just-me-again-down-here-regular">Reading Progress</h3>
+        <div class="options">
+          <label><input type="radio" name="progress"> 0%-25%</label>
+          <label><input type="radio" name="progress"> 26%-50%</label>
+          <label><input type="radio" name="progress"> 51%-75%</label>
+          <label><input type="radio" name="progress"> 76%-99%</label>
+          <label><input type="radio" name="progress"> 100%</label>
+        </div>
+      </section>
+      <hr>
+      <section>
+        <h3 class="just-me-again-down-here-regular">Reading Date</h3>
+        <div class="date-group">
+          <label>From <input type="date" id="date-from"></label>
+          <label>To <input type="date" id="date-to"></label>
+        </div>
+      </section>
+    </div>
+
+    <div class="column">
+      <section>
+        <h3 class="just-me-again-down-here-regular">Reading Status</h3>
+        <div class="options">
+          <label><input type="checkbox"> Not Started</label>
+          <label><input type="checkbox"> Reading</label>
+          <label><input type="checkbox"> On Hold</label>
+          <label><input type="checkbox"> Completed</label>
+          <label><input type="checkbox"> Dropped</label>
+          <label><input type="checkbox"> Re-reading</label>
+        </div>
+      </section>
+      <hr>
+      <section>
+        <h3 class="just-me-again-down-here-regular">Format</h3>
+        <div class="options">
+          <label><input type="checkbox"> PDF</label>
+          <label><input type="checkbox"> EPUB</label>
+          <label><input type="checkbox"> MOBI</label>
+          <label><input type="checkbox"> Audiobook</label>
+          <label><input type="checkbox"> Other</label>
+        </div>
+      </section>
+      <hr>
+      <section>
+        <h3 class="just-me-again-down-here-regular">Difficulty Level</h3>
+        <div class="options">
+          <label><input type="radio" name="diff"> Easy</label>
+          <label><input type="radio" name="diff"> Intermediate</label>
+          <label><input type="radio" name="diff"> Advanced</label>
+        </div>
+      </section>
+    </div>
+
+    <div class="column">
+      <section>
+        <h3 class="just-me-again-down-here-regular">Genre of Book</h3>
+        <div class="options scrollable">
+          <label><input type="checkbox"> Fantasy</label>
+          <label><input type="checkbox"> Sci-Fi</label>
+          <label><input type="checkbox"> Romance</label>
+          <label><input type="checkbox"> Mystery</label>
+          <label><input type="checkbox"> Non-fiction</label>
+          <label><input type="checkbox"> Horror</label>
+          <label><input type="checkbox"> Philosophy</label>
+          <label><input type="checkbox"> Other</label>
+        </div>
+      </section>
+      <hr>
+      <section class="pad-bot">
+        <h3 class="just-me-again-down-here-regular">Review</h3>
+        <textarea placeholder="Text..." id="review-text"></textarea>
+      </section>
+
+      <button type="submit" class="save-btn">SAVE BOOK</button> 
+    </div> 
+  </form>
+</div>
+</body>
+</html>
